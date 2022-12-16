@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../../features/auth/authSlice";
+import { notification } from "antd";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,7 @@ const Register = () => {
     password: "",
   });
 
-  const { name, email, password } = formData;
+  const { name, email, password, password2 } = formData;
   const dispatch = useDispatch();
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -23,7 +24,14 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(register(formData));
+    if (password !== password2) {
+      return notification.error({
+        message: "Error",
+        description: "Passwords do not match",
+      });
+    } else {
+      return dispatch(register(formData));
+    }
   };
 
   return (
@@ -49,6 +57,13 @@ const Register = () => {
         name="password"
         value={password}
         placeholder="password"
+        onChange={onChange}
+      />
+         <input
+        type="password"
+        name="password2"
+        value={password2}
+        placeholder="repeat the password"
         onChange={onChange}
       />
 
