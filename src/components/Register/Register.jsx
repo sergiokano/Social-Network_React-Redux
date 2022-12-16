@@ -30,7 +30,11 @@ const Register = () => {
         description: "Passwords do not match",
       });
     } else {
-      return dispatch(register(formData));
+      notification.success({
+        message: "Registered",
+        description: "User registered successful",
+      });
+      dispatch(register(formData));
     }
   };
 
@@ -59,7 +63,7 @@ const Register = () => {
         placeholder="password"
         onChange={onChange}
       />
-         <input
+      <input
         type="password"
         name="password2"
         value={password2}
