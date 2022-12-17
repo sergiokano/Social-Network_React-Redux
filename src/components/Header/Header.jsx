@@ -12,12 +12,18 @@ const Header = () => {
       <nav>
         <Link to="/">Home</Link>
       </nav>
+      
       {user ? (
-        <span onClick={() => dispatch(logout())}>Logout</span>
-      ) : (
         <>
+        <span onClick={() => dispatch(logout())}>Logout</span>
+        <Link to="/profile">Profile</Link>
+        </>
+        
+        ) : (
+          <>
           <Link to="/register">Sign Up</Link>
           <Link to="/login">Sign In</Link>
+
         </>
       )}
     </div>

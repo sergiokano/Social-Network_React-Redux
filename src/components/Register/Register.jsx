@@ -29,7 +29,8 @@ const Register = () => {
         message: "Error",
         description: "Passwords do not match",
       });
-    } else {
+    } else 
+    {
       notification.success({
         message: "Registered",
         description: "User registered successful",
