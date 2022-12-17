@@ -9,22 +9,39 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder
+    .addCase(login.fulfilled, (state, action) => {
+      state.user = action.payload;
+    })
+    .addCase(logout.fulfilled, (state, action) => {
+      state.user = null;
+    })
+  }
 });
 
 export const register = createAsyncThunk("auth/register", async (user) => {
   try {
-    return await authService.register(user) ;
+    return await authService.register(user);
   } catch (error) {
     console.error(error);
   }
 });
 
-export const login = createAsyncThunk("auth/login",async(user)=>{
-  try{
+export const login = createAsyncThunk("auth/login", async (user) => {
+  try {
     return await authService.login(user);
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-})
+});
+
+export const logout = createAsyncThunk("auth/logout", async (user) => {
+  try {
+    return await authService.logout(user);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 export default authSlice.reducer;
