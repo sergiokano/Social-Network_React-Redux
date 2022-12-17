@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { login } from "../../features/auth/authSlice";
+import { notification } from "antd";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Login = () => {
 
     password: "",
   });
+  const { user } = useSelector((state) => state.auth);
 
   const { email, password } = formData;
 
@@ -25,10 +27,10 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    console.log("formData", formData);
-
     dispatch(login(formData));
+    notification.success({
+      message: `${user.message}`,
+    });
   };
 
   return (
