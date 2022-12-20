@@ -6,6 +6,7 @@ const Profile = () => {
   return (
     <div>
       <p>{user.user.name}</p>
+      {console.log(user)}
     </div>
   );
 };
