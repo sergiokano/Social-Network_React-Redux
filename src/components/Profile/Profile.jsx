@@ -6,6 +6,9 @@ const Profile = () => {
   return (
     <div>
       <p>{user.user.name}</p>
+      <p>POSTS: </p>
+      <span>{console.log(user.user.postIds)}</span>
+
       {console.log(user)}
     </div>
   );
