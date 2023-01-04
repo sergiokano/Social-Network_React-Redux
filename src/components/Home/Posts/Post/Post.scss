@@ -1,0 +1,19 @@
+.post {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  
+    a {
+      text-decoration: none;
+      color: #333;
+  
+      &:hover {
+        color: #0077c9;
+      }
+    }
+  
+    p {
+      font-size: 16px;
+      margin-left: 10px;
+    }
+  }

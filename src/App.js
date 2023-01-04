@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import PostDetail from "./components/Home/Posts/PostDetail/PostDetail";
 import Home from "./components/Home/Home";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/post/:_id" element={<PostDetail />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
