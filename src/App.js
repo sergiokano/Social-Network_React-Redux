@@ -8,6 +8,8 @@ import PostDetail from "./components/Home/Posts/PostDetail/PostDetail";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Search from "./components/Search/Search";
+import Dashboard from "./components/Dashboard/Dashboard";
+const code = new URLSearchParams(window.location.search).get("code")
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          code ? <Dashboard code={code} /> : <Login />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
