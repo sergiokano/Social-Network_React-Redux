@@ -5,6 +5,7 @@ const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   return (
     <div>
+      {console.log(user)} 
       <p>{user.name}</p>
       <p>POSTS: </p>
       {/* {user.postIds.map((post) => (
