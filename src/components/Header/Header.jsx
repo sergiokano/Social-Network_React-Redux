@@ -12,17 +12,16 @@ const Header = () => {
     setText(e.target.value);
 
     if (e.key === "Enter") {
-      navigate("/search/"+text)
+      navigate("/search/" + text);
     }
   };
-
 
   const dispatch = useDispatch();
   return (
     <div className="container-header">
       <span>Logo</span>
-      
-        <input onKeyUp={handleChange} placeholder="search post" name="text" />
+
+      <input onKeyUp={handleChange} placeholder="search post" name="text" />
 
       <nav>
         <Link to="/">Home</Link>
@@ -30,8 +29,9 @@ const Header = () => {
 
       {user ? (
         <>
-          <span onClick={() => dispatch(logout())}>Logout</span>
+          <Link to="/music">Music</Link>
           <Link to="/profile">Profile</Link>
+          <span onClick={() => dispatch(logout())}>Logout</span>
         </>
       ) : (
         <>
