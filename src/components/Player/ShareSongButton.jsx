@@ -12,7 +12,7 @@ const ShareSongButton = ({ trackUri }) => {
         <div className="d-flex justify-content-center mb-4">
         <Button onClick={handleClick} className="btn-primary btn-lg">
           <Icon type="share-alt" />
-          Compartir
+          Share Song
         </Button>
       </div>
     );
