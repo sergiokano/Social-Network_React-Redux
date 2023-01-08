@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getById } from "../../../../features/posts/postsSlice";
+import { Card, Button, Form } from "react-bootstrap";
 
 const PostDetail = () => {
   const { _id } = useParams();
@@ -12,11 +13,14 @@ const PostDetail = () => {
     dispatch(getById(_id));
   }, []);
   return (
-    <div key={post._id}>
-      <h1>PostDetail</h1>
-      <p>{post.description}</p>
-      <p>{post.body}</p>
-    </div>
+    <Card style={{ margin: "40px 40px", color: "black" }} className=" shadow-sm">
+      <Card.Body className="p-3">
+        <Card.Title className="font-weight-bold ">
+          {post.description}
+        </Card.Title>
+        <Card.Text className="text-secondary">{post.body}</Card.Text>
+      </Card.Body>
+    </Card>
   );
 };
 
