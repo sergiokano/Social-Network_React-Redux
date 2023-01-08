@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ShareSongButton.scss";
 import { Button } from "antd";
 import Icon from "@ant-design/icons";
-import ShareModal from './ShareModal/ShareModal';
+import CreatePost from './CreatePost/CreatePost';
 
 const ShareSongButton = ({ trackUri, trackInfo, track }) => {
   const [showModal, setShowModal] = useState(false);
@@ -23,7 +23,7 @@ const ShareSongButton = ({ trackUri, trackInfo, track }) => {
           Share Song
         </Button>
       </div>
-      <ShareModal showModal={showModal} handleClose={handleClose} track={track} />
+      <CreatePost showModal={showModal} handleClose={handleClose} track={track} />
     </>
     );
   };
