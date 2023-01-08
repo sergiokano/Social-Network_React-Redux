@@ -2,42 +2,48 @@ import { useState, useEffect } from "react";
 import useAuth from "../../features/auth/useAuth";
 import { Container, Form } from "react-bootstrap";
 import SpotifyWebApi from "spotify-web-api-node";
-
+import TrackSearchResult from "../TrackSearchResult/TrackSearchResult";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.CLIENT_ID,
 });
 
 export default function Dashboard({ code }) {
-  const accesToken = useAuth(code)
-  const [search, setSearch] = useState("")
-  const [searchResults, setSearchResults] = useState([])
-  console.log(searchResults)
+  const accesToken = useAuth(code);
+  const [search, setSearch] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    if (!accesToken) return
-        spotifyApi.setAccessToken(accesToken);
+    if (!accesToken) return;
+    spotifyApi.setAccessToken(accesToken);
   }, [accesToken]);
 
   useEffect(() => {
-    if (!search) return setSearchResults([])
-    if (!accesToken) return 
-
-    spotifyApi.searchTracks(search).then(res => {
-        setSearchResults(res.body.tracks.items.map(track => {
-            const smallestAlbumImage = track.album.images.reduce((smallest, image) => {
-                if (image.height < smallest.height) return image
-                return smallest
-            }, track.album.images[0])
-            return {
-                artist: track.artists[0].name,
-                title: track.name,
-                uri: track.uri,
-                albumUrl: smallestAlbumImage.url
-            }
-        }))
-    })
-  },[search, accesToken])
+    if (!search) return setSearchResults([]);
+    if (!accesToken) return;
+    let cancel = false;
+    spotifyApi.searchTracks(search).then((res) => {
+        if (cancel) return
+      setSearchResults(
+        res.body.tracks.items.map((track) => {
+          const smallestAlbumImage = track.album.images.reduce(
+            (smallest, image) => {
+              if (image.height < smallest.height) return image;
+              return smallest;
+            },
+            track.album.images[0]
+          );
+          return {
+            artist: track.artists[0].name,
+            title: track.name,
+            uri: track.uri,
+            albumUrl: smallestAlbumImage.url,
+          };
+        })
+      );
+    });
+    return () => (cancel = true);
+  }, [search, accesToken]);
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
@@ -48,7 +54,14 @@ export default function Dashboard({ code }) {
         onChange={(e) => setSearch(e.target.value)}
       />
       <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
-        Songs
+      {searchResults.map(track => (
+          <TrackSearchResult
+            track={track}
+            key={track.uri}
+            // chooseTrack={chooseTrack}
+          />
+        ))}
+
       </div>
       <div>Bottom</div>
     </Container>
