@@ -38,8 +38,6 @@ const CreatePost = ({ showModal, handleClose, track }) => {
           </div>
           <div
             className="song-info"
-            // value={trackPost}
-            // onChange={(e) => setTrackPost(e.target.value)}
           >
             <img src={track.albumUrl} alt={track.title} />
             <div className="song-details">

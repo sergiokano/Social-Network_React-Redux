@@ -17,7 +17,7 @@ export default function useAuth(code) {
         setAccesToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
         setExpiresIn(res.data.expiresIn);
-        window.history.pushState({}, null, "/");
+        window.history.pushState({}, null, "/music");
       })
       .catch(() => {
         // window.location = '/'
@@ -36,7 +36,7 @@ export default function useAuth(code) {
           setExpiresIn(res.data.expiresIn);
         })
         .catch(() => {
-          window.location = '/'
+          window.location = '/music'
         });
     }, (expiresIn - 60) * 1000);
     return () => clearInterval(interval);

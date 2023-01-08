@@ -1,5 +1,5 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 // import Register from "./components/Register/Register";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login/Login";
@@ -11,13 +11,19 @@ import LoginSpotify from "./components/Login/LoginSpotify";
 // import Footer from "./components/Footer/Footer";
 // import Search from "./components/Search/Search";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Music from "./components/Music/Music";
 const code = new URLSearchParams(window.location.search).get("code");
 
 function App() {
   return (
     <div className="App">
-      {code ? <Dashboard code={code} /> : <LoginSpotify />}
-{/* <BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/music" element={<Music />} />
+        </Routes>
+      </BrowserRouter>
+      {/* {code ? <Dashboard code={code} /> : <LoginSpotify />} */}
+      {/* <BrowserRouter>
         <Header />
         <Routes>
         <Route path="/" element={<Home />} />
