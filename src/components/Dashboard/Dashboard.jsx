@@ -16,8 +16,8 @@ export default function Dashboard({ code }) {
   const [playingTrack, setPlayingTrack] = useState();
 
   function chooseTrack(track) {
-    setPlayingTrack(track)
-    setSearch('')
+    setPlayingTrack(track);
+    setSearch("");
   }
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function Dashboard({ code }) {
   }, [search, accessToken]);
 
   return (
-    <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
+    <Container className="d-flex flex-column py-2" style={{ height: "100%" }}>
       <Form.Control
         type="search"
         placeholder="Search Songs/Artists"
@@ -69,8 +69,12 @@ export default function Dashboard({ code }) {
           />
         ))}
       </div>
-      <div>
-      <Player accessToken={accessToken}  trackUri={playingTrack?.uri } track={playingTrack} />
+      <div style={{ position: "absolute", bottom: "6%", objectFit:"cover", width: "80%" }}>
+        <Player
+          accessToken={accessToken}
+          trackUri={playingTrack?.uri}
+          track={playingTrack}
+        />
       </div>
     </Container>
   );
