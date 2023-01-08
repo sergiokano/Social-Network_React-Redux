@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import SpotifyPlayer from "react-spotify-web-playback";
-import ShareSongButton from "./ShareSongButton";
+import ShareSongButton from "./Share/ShareSongButton";
 
 const Player = ({ accessToken, trackUri, trackInfo, track }) => {
   const [play, setPlay] = useState(false);
