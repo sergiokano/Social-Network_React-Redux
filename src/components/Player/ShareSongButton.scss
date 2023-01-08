@@ -1,0 +1,13 @@
+.btn-primary {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border-color: grey;
+    transition: all 0.3s;
+    align-items: center;
+    }
+    
+    .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
