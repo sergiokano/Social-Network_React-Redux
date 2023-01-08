@@ -3,27 +3,34 @@ import useAuth from "../../features/auth/useAuth";
 import { Container, Form } from "react-bootstrap";
 import SpotifyWebApi from "spotify-web-api-node";
 import TrackSearchResult from "../TrackSearchResult/TrackSearchResult";
+import Player from "../Player/Player";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.CLIENT_ID,
 });
 
 export default function Dashboard({ code }) {
-  const accesToken = useAuth(code);
+  const accessToken = useAuth(code);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [playingTrack, setPlayingTrack] = useState();
+
+  function chooseTrack(track) {
+    setPlayingTrack(track)
+    setSearch('')
+  }
 
   useEffect(() => {
-    if (!accesToken) return;
-    spotifyApi.setAccessToken(accesToken);
-  }, [accesToken]);
+    if (!accessToken) return;
+    spotifyApi.setAccessToken(accessToken);
+  }, [accessToken]);
 
   useEffect(() => {
     if (!search) return setSearchResults([]);
-    if (!accesToken) return;
+    if (!accessToken) return;
     let cancel = false;
     spotifyApi.searchTracks(search).then((res) => {
-        if (cancel) return
+      if (cancel) return;
       setSearchResults(
         res.body.tracks.items.map((track) => {
           const smallestAlbumImage = track.album.images.reduce(
@@ -43,7 +50,7 @@ export default function Dashboard({ code }) {
       );
     });
     return () => (cancel = true);
-  }, [search, accesToken]);
+  }, [search, accessToken]);
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
@@ -54,16 +61,17 @@ export default function Dashboard({ code }) {
         onChange={(e) => setSearch(e.target.value)}
       />
       <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
-      {searchResults.map(track => (
+        {searchResults.map((track) => (
           <TrackSearchResult
             track={track}
             key={track.uri}
-            // chooseTrack={chooseTrack}
+            chooseTrack={chooseTrack}
           />
         ))}
-
       </div>
-      <div>Bottom</div>
+      <div>
+      <Player accessToken={accessToken}  trackUri={playingTrack?.uri}/>
+      </div>
     </Container>
   );
 }
