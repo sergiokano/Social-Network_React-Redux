@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 
 const CreatePost = ({ showModal, handleClose, track }) => {
   const [description, setDescription] = useState("");
-  // const [trackPost, setTrackPost] = useState("");
   const dispatch = useDispatch();
   
   function OnCreatePost(e) {
