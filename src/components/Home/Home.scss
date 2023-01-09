@@ -1,0 +1,91 @@
+@import "../../App.scss";
+
+
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+span{
+    position: relative;
+    display: inline-flex;
+    width: 180px;
+    height: 55px;
+    margin: 0 15px;
+    perspective: 1000px;
+  }
+  .login{
+    a:before{
+        content: "LOGIN";
+    }
+    a:after{
+        content: "HIIIIIIIII :)))";
+    }
+  }
+
+  .register{
+    a:before{
+        content: "REGISTER";
+    }
+    a:after{
+        content: "YASSSSSSSS";
+    }
+
+  }
+   a{
+    font-size: 19px;
+    letter-spacing: 1px;
+    transform-style: preserve-3d;
+    transform: translateZ(-25px);
+    transition: transform .25s;
+    font-family: 'Montserrat', sans-serif;
+    
+  }
+   a:before,
+   a:after{
+    position: absolute;
+    height: 55px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $color-spotify-black;
+    background-color: $color-yellow;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+   a:before{
+    color: $color-spotify-white;
+    background:$color-spotify-black;
+    transform: rotateY(0deg) translateZ(25px);
+  }
+   a:after{
+    color: $color-spotify-black;
+    transform: rotateX(90deg) translateZ(25px);
+  }
+   a:hover{
+    transform: translateZ(-25px) rotateX(-90deg);
+  }
