@@ -2,19 +2,21 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { createComment } from "../../../../../features/posts/postsSlice";
+import { createComment } from "../../../../../features/comments/commentsSlice";
 import { notification } from "antd";
-
+import { useParams } from "react-router-dom";
 
 const CreateComment = () => {
- 
+  const { _id } = useParams();
   const [commentData, setCommentData] = useState({
-    commentDescription: "",
+    description: "",
+    postId: _id,
+
   });
 
   const { user } = useSelector((state) => state.auth);
 
-  const { commentDescription} = commentData;
+  const { description } = commentData;
   const dispatch = useDispatch();
 
   const onChange = (e) => {
@@ -25,28 +27,26 @@ const CreateComment = () => {
     }));
   };
 
-
-
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createComment(commentData));
+    dispatch(createComment({ ...commentData, _id }));
     notification.success({
       message: "Comment Posted",
     });
-    
+    console.log(commentData)
   };
 
   return (
     <form onSubmit={onSubmit}>
-        <input
-          type="string"
-          name="commentDescription"
-          value={commentDescription}
-          onChange={onChange}
-        />
+      <input
+        type="string"
+        name="description"
+        value={description}
+        onChange={onChange}
+      />
 
-        <button type="submit">Add comment</button>
-      </form>
+      <button type="submit">Add comment</button>
+    </form>
   );
 };
 

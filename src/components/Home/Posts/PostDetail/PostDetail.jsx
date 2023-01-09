@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getById } from "../../../../features/posts/postsSlice";
 import { Card, Button, Form, Image } from "react-bootstrap";
 import CreateComment from "../Post/CreateComment/CreateComment";
+import { useRouteMatch } from "react-router-dom";
 
 const PostDetail = () => {
   const { _id } = useParams();
@@ -50,7 +51,7 @@ const PostDetail = () => {
         </Card.Title>
         <Card.Text className="text-secondary">{post.body}</Card.Text>
       </Card.Body>
-      <CreateComment/>
+      <CreateComment _id={_id} />
       {/* <form>
         <input
           type="string"
@@ -66,3 +67,5 @@ const PostDetail = () => {
 };
 
 export default PostDetail;
+
+
