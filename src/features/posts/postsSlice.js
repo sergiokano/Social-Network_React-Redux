@@ -54,6 +54,24 @@ export const updatePost = createAsyncThunk(
   }
 );
 
+export const addLike = createAsyncThunk("posts/addLike", async (_id) => {
+  try {
+      await postsService.addLike(_id);
+      return await postsService.getAll();
+  } catch (error) {
+      console.error(error);
+  }
+});
+
+export const removeLike = createAsyncThunk("post/removeLike", async(_id)=>{
+  try{
+    await postsService.removeLike(_id)
+    return await postsService.getAll();
+  }catch(error){
+    console.error(error)
+  }
+})
+
 // export const updatePost = createAsyncThunk("posts/updatePost", async (data) => {
 //   try {
 //       return await postsService.updatePost(data);
@@ -86,6 +104,12 @@ export const postsSlice = createSlice({
       })
       .addCase(createPost.fulfilled, (state, action) => {
         state.posts = [action.payload, ...state.posts];
+      })
+      .addCase(addLike.fulfilled, (state, action) => {
+        state.posts = action.payload;
+      })
+      .addCase(removeLike.fulfilled, (state, action) => {
+        state.posts = action.payload;
       });
   },
 });

@@ -8,7 +8,7 @@ const Posts = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.posts);
   const getAllAndReset =async()=>{
-    await dispatch(getAll());
+     dispatch(getAll());
      dispatch(reset());
   }
   useEffect( () => {

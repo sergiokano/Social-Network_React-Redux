@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { createComment } from "../../../../../features/comments/commentsSlice";
 import { notification } from "antd";
 import { useParams } from "react-router-dom";
+import "./CreateComment.scss"
 
 const CreateComment = () => {
   const { _id } = useParams();
   const [commentData, setCommentData] = useState({
     description: "",
     postId: _id,
-
   });
 
   const { user } = useSelector((state) => state.auth);
@@ -33,7 +33,7 @@ const CreateComment = () => {
     notification.success({
       message: "Comment Posted",
     });
-    console.log(commentData)
+    console.log(commentData);
   };
 
   return (
@@ -45,7 +45,9 @@ const CreateComment = () => {
         onChange={onChange}
       />
 
-      <button type="submit">Add comment</button>
+      <button type="submit" className="btn-">
+        Add comment
+      </button>
     </form>
   );
 };

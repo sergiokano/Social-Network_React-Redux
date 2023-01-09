@@ -5,7 +5,8 @@ import { getById } from "../../../../features/posts/postsSlice";
 import { Card, Button, Form, Image } from "react-bootstrap";
 import CreateComment from "../Post/CreateComment/CreateComment";
 import EditPost from "../EditPost/EditPost";
-
+import "./PostDetail.scss";
+import { addLike } from "../../../../features/posts/postsSlice";
 const PostDetail = () => {
   const { _id } = useParams();
 
@@ -15,9 +16,12 @@ const PostDetail = () => {
   useEffect(() => {
     dispatch(getById(_id));
     setIsModalVisible(true);
-
   }, []);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleClick = () => {
+    // setIsModalVisible(true);
+    // dispatch(addLike(_id));
+  };
 
   return (
     <Card
@@ -45,10 +49,11 @@ const PostDetail = () => {
         </Card.Title>
         <Card.Text className="text-secondary">{post.body}</Card.Text>
       </Card.Body>
-      <div>
-            {/* {element} */}
-            <EditPost visible={isModalVisible} setVisible={setIsModalVisible} />
-          </div>
+
+      <Button onClick={handleClick} className="btn-primary btn-sm">
+        Edit Post
+      </Button>
+      <EditPost visible={isModalVisible} setVisible={setIsModalVisible} />
       <CreateComment _id={_id} />
     </Card>
   );

@@ -31,6 +31,36 @@ const createPost = async (postData) => {
 
 
 
+const addLike = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const res = await axios.put(
+      API_URL + "/posts/addLike/" + _id,
+      {},
+      {
+          headers: { authorization: user.token },
+      }
+  );
+
+  return res.data;
+};
+
+const removeLike = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const res = await axios.put(
+      API_URL + "/posts/removeLike/" + _id,
+      {},
+      {
+          headers: { authorization: user.token },
+      }
+  );
+
+  return res.data;
+};
+
+
+
 const updatePost = async (data) => {
   const user = JSON.parse(localStorage.getItem('user'));
   const res = await axios.put(API_URL + "/posts/update/" + data._id, data, {
@@ -48,7 +78,9 @@ const postsService = {
   getById,
   getPostByName,
   createPost,
-  updatePost
+  updatePost,
+  addLike,
+  removeLike
 };
 
 export default postsService;
