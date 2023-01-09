@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./Login.scss"
 import { useDispatch, useSelector } from "react-redux";
 
 import { login } from "../../features/auth/authSlice";
@@ -31,22 +31,40 @@ const Login = () => {
     notification.success({
       message: `${user.message}`,
     });
-    
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="email" name="email" value={email} onChange={onChange} />
+    <div class="container mt-3">
+      <h1>Login</h1>
 
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={onChange}
-      />
+      <form onSubmit={onSubmit}>
+        <div class="mb-3 mt-3">
+          <label for="email">Email:</label>
 
-      <button type="submit">Login</button>
-    </form>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={onChange}
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="pwd">Password:</label>
+
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            onChange={onChange}
+          />
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
   );
 };
 
