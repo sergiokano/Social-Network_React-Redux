@@ -72,6 +72,15 @@ export const removeLike = createAsyncThunk("post/removeLike", async(_id)=>{
   }
 })
 
+export const getUserInfo = createAsyncThunk("posts/conectedUser", async()=>{
+  try{
+    console.log("Hello");
+   return await postsService.getUserInfo()
+  }catch(error){
+    console.error(error)
+  }
+})
+
 // export const updatePost = createAsyncThunk("posts/updatePost", async (data) => {
 //   try {
 //       return await postsService.updatePost(data);
@@ -110,7 +119,10 @@ export const postsSlice = createSlice({
       })
       .addCase(removeLike.fulfilled, (state, action) => {
         state.posts = action.payload;
-      });
+      })
+      .addCase(getUserInfo.fulfilled, (state, action) => {
+        state.userInfo = action.payload;
+      })
   },
 });
 

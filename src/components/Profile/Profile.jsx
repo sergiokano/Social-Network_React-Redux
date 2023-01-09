@@ -1,17 +1,25 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserInfo } from "../../features/posts/postsSlice";
+import Post from "../Home/Posts/Post/Post";
 
 const Profile = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.posts);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log("USEFECT");   
+    dispatch(getUserInfo());
+  }, [])
+
+  
+  
+  console.log("USER INFO", userInfo);
   return (
-    <div>
-      {console.log(user)} 
-      <p>{user.name}</p>
-      <h1>Posts: </h1>
-      {/* {user.postIds.map((post) => (
-        // <p key={post._id}>{post.description}</p>
-      ))} */}
-    </div>
+    <>
+      {userInfo?.postIds &&
+        <Post posts={userInfo.postIds}/>
+      }
+      </>
   );
 };
 
