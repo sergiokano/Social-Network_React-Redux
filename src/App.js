@@ -10,7 +10,6 @@ import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Search from "./components/Search/Search";
 import Music from "./components/Music/Music";
-import Player from "./components/Player/Player";
 const code = new URLSearchParams(window.location.search).get("code");
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />

@@ -7,7 +7,9 @@ console.log(user)
 
 return (
     <div className="footer">
-      <p className="welcome-message">Welcome, <span className="name">{user.user.name}</span></p>
+      <>
+      {user ? (<p className="welcome-message">Welcome, <span className="name">{user.user.name}</span></p>) : (<p className="welcome-message">Your favourite social app</p>)}
+      </>
     </div>
   );
 };
