@@ -17,29 +17,29 @@ const Header = () => {
   };
 
   const dispatch = useDispatch();
+
   return (
-    <div className="container-header">
-      <span>Logo</span>
-
-      <input onKeyUp={handleChange} placeholder="search post" name="text" />
-
-      <nav>
-        <Link to="/">Home</Link>
-      </nav>
-
+    <>
       {user ? (
-        <>
-          <Link to="/music">Music</Link>
-          <Link to="/profile">Profile</Link>
-          <span onClick={() => dispatch(logout())}>Logout</span>
-        </>
+        <div className="container-header">
+          <span>Logo</span>
+
+          <input onKeyUp={handleChange} placeholder="search post" name="text" />
+
+          <nav>
+            <Link to="/">Home</Link>
+          </nav>
+
+          <>
+            <Link to="/music">Music</Link>
+            <Link to="/profile">Profile</Link>
+            <span onClick={() => dispatch(logout())}>Logout</span>
+          </>
+        </div>
       ) : (
-        <>
-          <Link to="/register">Sign Up</Link>
-          <Link to="/login">Sign In</Link>
-        </>
+        <nocode></nocode>
       )}
-    </div>
+    </>
   );
 };
 

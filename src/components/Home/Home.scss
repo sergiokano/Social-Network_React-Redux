@@ -6,15 +6,22 @@ body {
   height: 100%;
   min-height: 100vh;
   margin: 0;
-  font-family: "Work Sans", sans-serif;
+  font-family: $font-text, sans-serif;
   font-weight: 400;
   
 }
-
+h2 {
+    font-family: $font-text, sans-serif;
+    font-size: 2em;
+    color: $color-spotify-white;
+    top: 56%;
+    left: 50%;
+margin-bottom: 2em 
+  }
 video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit:cover;
 }
 
 .content {
@@ -26,6 +33,7 @@ video {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 0;
     
 
 }
@@ -88,4 +96,11 @@ span{
   }
    a:hover{
     transform: translateZ(-25px) rotateX(-90deg);
+  }
+  .logo {
+    position: absolute;
+    height: 8em;
+    top: 80%;
+    left: 48%;
+    transform: translate(-50%, -50%);
   }

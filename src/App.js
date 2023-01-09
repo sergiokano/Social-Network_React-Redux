@@ -11,7 +11,6 @@ import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Search from "./components/Search/Search";
 import Music from "./components/Music/Music";
-const code = new URLSearchParams(window.location.search).get("code");
 
 function App() {
   return (
