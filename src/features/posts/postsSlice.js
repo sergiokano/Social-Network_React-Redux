@@ -42,6 +42,14 @@ export const createPost = createAsyncThunk("posts/create", async (postData) => {
   }
 });
 
+export const createComment = createAsyncThunk("comments/create", async (commentData) => {
+  try {
+    return await postsService.createComment(commentData);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 export const postsSlice = createSlice({
   name: "posts",
   initialState,
