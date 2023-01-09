@@ -13,18 +13,26 @@ const PostDetail = () => {
     dispatch(getById(_id));
   }, []);
   return (
-    <Card style={{ margin: "40px 40px", color: "black" }} className=" shadow-sm">
+    <Card
+      style={{ margin: "40px 40px", color: "black" }}
+      className=" shadow-sm"
+    >
       <Card.Body className="p-3">
         <Card.Title className="font-weight-bold ">
+          {console.log(post.track)}
           {post.description}
         </Card.Title>
         <Card.Text className="text-secondary">{post.body}</Card.Text>
       </Card.Body>
-      <Card.Body>
-            <Card.Subtitle>{post.track.title}</Card.Subtitle>
-            <Card.Subtitle>{post.track.artist}</Card.Subtitle>
-            <Image src={post.track.albumUrl} />
-          </Card.Body>
+      {post.track ? (
+        <Card.Body>
+          <Card.Subtitle>{post.track.title}</Card.Subtitle>
+          <Card.Subtitle>{post.track.artist}</Card.Subtitle>
+          <Image src={post.track.albumUrl} />
+        </Card.Body>
+      ) : (
+        <p className="welcome-message">Error getting track</p>
+      )}
     </Card>
   );
 };
