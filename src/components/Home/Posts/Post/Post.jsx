@@ -3,6 +3,9 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Post.scss";
 import Card from "react-bootstrap/Card";
+import { Image } from "react-bootstrap";
+import { HeartOutlined } from "@ant-design/icons";
+import { FaRegComment } from "react-icons/fa";
 
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);
@@ -20,6 +23,21 @@ const Post = () => {
           >
             <Card.Title>{post.description}</Card.Title>
           </Link>
+          <Card.Body>
+            <Card.Subtitle>{post.track.title}</Card.Subtitle>
+            <Card.Subtitle>{post.track.artist}</Card.Subtitle>
+            <Image src={post.track.albumUrl} />
+          </Card.Body>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginLeft: "30%",
+            }}
+          >
+            <HeartOutlined style={{ marginRight: "10px" }} />
+            <FaRegComment />
+          </div>
         </Card.Body>
       </Card>
     );
