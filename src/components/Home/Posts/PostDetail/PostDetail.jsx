@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { getById } from "../../../../features/posts/postsSlice";
 import { Card, Button, Form, Image } from "react-bootstrap";
 import CreateComment from "../Post/CreateComment/CreateComment";
-import { useRouteMatch } from "react-router-dom";
 
 const PostDetail = () => {
   const { _id } = useParams();
@@ -16,17 +15,6 @@ const PostDetail = () => {
     dispatch(getById(_id));
   }, []);
 
-  // const [formData, setFormData] = useState({
-  //   commentDescription: "",
-  // });
-
-  // const { commentDescription } = formData;
-  // const onChange = (e) => {
-  //   setFormData((prevState) => ({
-  //     ...prevState,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // };
   return (
     <Card
       style={{ margin: "40px 40px", color: "black" }}
@@ -45,27 +33,17 @@ const PostDetail = () => {
           ) : (
             ""
           )}
-          <Card.Subtitle>
-            {post.comments?.map((comment) => comment.description)}
+          <Card.Subtitle style={{ margin: "40px 40px" }}>
+            {post.comments?.map((comment) => (
+              <Card.Text>{comment.description}</Card.Text>
+            ))}
           </Card.Subtitle>
         </Card.Title>
         <Card.Text className="text-secondary">{post.body}</Card.Text>
       </Card.Body>
       <CreateComment _id={_id} />
-      {/* <form>
-        <input
-          type="string"
-          name="description"
-          value={commentDescription}
-          onChange={onChange}
-        />
-
-        <button type="submit">Add comment</button>
-      </form> */}
     </Card>
   );
 };
 
 export default PostDetail;
-
-
