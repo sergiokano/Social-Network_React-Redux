@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ShareSongButton.scss";
 import { Button } from "antd";
 import Icon from "@ant-design/icons";
-import CreatePost from './CreatePost/CreatePost';
+import CreatePost from '../../Home/Posts/CreatePost/CreatePost';
 
 const ShareSongButton = ({ trackUri, trackInfo, track }) => {
   const [showModal, setShowModal] = useState(false);

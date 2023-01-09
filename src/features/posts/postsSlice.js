@@ -42,13 +42,25 @@ export const createPost = createAsyncThunk("posts/create", async (postData) => {
   }
 });
 
-export const createComment = createAsyncThunk("comments/create", async (commentData) => {
-  try {
-    return await postsService.createComment(commentData);
-  } catch (error) {
-    console.error(error);
+export const updatePost = createAsyncThunk(
+  "posts/update",
+  async (data, thunkAPI) => {
+    try {
+      return await postsService.updatePost(data);
+    } catch (error) {
+      const message = error.response.data.message;
+      return thunkAPI.rejectWithValue(message);
+    }
   }
-});
+);
+
+// export const updatePost = createAsyncThunk("posts/updatePost", async (data) => {
+//   try {
+//       return await postsService.updatePost(data);
+//   } catch (error) {
+//       console.error(error);
+//   }
+// });
 
 export const postsSlice = createSlice({
   name: "posts",

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getById } from "../../../../features/posts/postsSlice";
 import { Card, Button, Form, Image } from "react-bootstrap";
 import CreateComment from "../Post/CreateComment/CreateComment";
+import EditPost from "../EditPost/EditPost";
 
 const PostDetail = () => {
   const { _id } = useParams();
@@ -13,7 +14,10 @@ const PostDetail = () => {
   const { post } = useSelector((state) => state.posts);
   useEffect(() => {
     dispatch(getById(_id));
+    setIsModalVisible(true);
+
   }, []);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
     <Card
@@ -41,6 +45,10 @@ const PostDetail = () => {
         </Card.Title>
         <Card.Text className="text-secondary">{post.body}</Card.Text>
       </Card.Body>
+      <div>
+            {/* {element} */}
+            <EditPost visible={isModalVisible} setVisible={setIsModalVisible} />
+          </div>
       <CreateComment _id={_id} />
     </Card>
   );

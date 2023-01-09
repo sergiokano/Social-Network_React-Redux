@@ -30,24 +30,25 @@ const createPost = async (postData) => {
 }
 
 
-const createComment = async (commentData) => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  console.log("user",user.token)
-  const res = await axios.post(API_URL + "/comment/create", commentData, {
-      headers: {
-          Authorization: user?.token
-          
-        }
-      });
-  return res.data
-}
+
+const updatePost = async (data) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const res = await axios.put(API_URL + "/posts/update/" + data._id, data, {
+    headers: {
+      authorization: user.token,
+    },
+  } );
+return res.data;
+};
+
+
 
 const postsService = {
   getAll,
   getById,
   getPostByName,
   createPost,
-  createComment
+  updatePost
 };
 
 export default postsService;
