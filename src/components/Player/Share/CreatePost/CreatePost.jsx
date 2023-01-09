@@ -2,6 +2,8 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { Button } from "antd";
 import { useDispatch } from "react-redux";
+import { createPost} from "../../../../features/posts/postsSlice";
+
 
 const CreatePost = ({ showModal, handleClose, track }) => {
   const [description, setDescription] = useState("");
@@ -15,7 +17,8 @@ const CreatePost = ({ showModal, handleClose, track }) => {
      
     };
     console.log(postData);
-    dispatch(CreatePost(postData));
+    dispatch(createPost(postData));
+    console.log("entras?")
   }
 
   return (

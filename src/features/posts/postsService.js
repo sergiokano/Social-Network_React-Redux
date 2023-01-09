@@ -19,11 +19,13 @@ const getPostByName = async (description)=>{
 
 const createPost = async (postData) => {
   const user = JSON.parse(localStorage.getItem("user"));
+  console.log("user",user.token)
   const res = await axios.post(API_URL + "/posts/create", postData, {
       headers: {
-          authorization: user?.token
-      }
-  });
+          Authorization: user?.token
+          
+        }
+      });
   return res.data
 }
 
