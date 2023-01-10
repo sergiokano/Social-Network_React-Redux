@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import "./Post.scss";
 import Card from "react-bootstrap/Card";
 import { Image } from "react-bootstrap";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { HeartOutlined, HeartFilled, DeleteOutlined } from "@ant-design/icons";
 import { FaRegComment } from "react-icons/fa";
-import { addLike, getAll, removeLike, reset } from "../../../../features/posts/postsSlice";
+import { addLike, deletePost, getAll, removeLike, reset } from "../../../../features/posts/postsSlice";
 
 const Post = ({posts}) => {
   
@@ -19,12 +19,17 @@ const Post = ({posts}) => {
   };
   const handleUnlikeClick = (_id) =>{
     dispatch(removeLike(_id));
-
   }
-  const post = posts.map((post) => {
+  
+  const deletePostUser = (_id) =>{
+    dispatch(deletePost(_id));
+  }
+  const post = posts?.map((post) => {
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log("ID DE USUARIO LOGEADO",user.user._id)
     const findLike = post.likes.find((user_id)=>user_id ===user.user._id)
+    console.log(post.postedBy)
+    const isAuthor = (post?.postedBy===user.user._id)
+
     console.log("FIND LIKE", findLike);
     return (
       <Card
@@ -63,6 +68,12 @@ const Post = ({posts}) => {
               />
             }
             <FaRegComment />
+            {isAuthor && 
+              <DeleteOutlined
+                // style={{ marginRight: "10px" }}
+                onClick={() => deletePostUser(post._id)}
+              />
+            }
           </div>
         </Card.Body>
       </Card>

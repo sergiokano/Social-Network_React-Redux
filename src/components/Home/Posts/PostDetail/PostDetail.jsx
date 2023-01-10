@@ -30,7 +30,6 @@ const PostDetail = () => {
     >
       <Card.Body className="p-3">
         <Card.Title className="font-weight-bold ">
-          {console.log("post", post)}
           {post.description}
           {post.track ? (
             <>
