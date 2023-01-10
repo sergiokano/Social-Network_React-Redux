@@ -1,23 +1,44 @@
+@import "../../App.scss";
+
+
 .container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color-spotify-black;
+  height: 50px;
+  color: white;
+  font-family: $font-text, sans-serif;
+
+.logo-header{
+  img {
+    height: 4em;
+    margin-left: 1em;
+  }
+}
+  nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 50px;
-    background-color: #333;
-    color: #fff;
-  
-   
-  
-    
-      a {
-        text-decoration: none;
-        color: #fff;
-        margin-right: 20px;
-        font-size: 14px;
-  
-        &:hover {
-          color: #ccc;
-        }
-      }
-    
   }
+
+  a {
+    color: $color-spotify-white;
+    text-decoration: none;
+    margin-right: 15px;
+    &:hover {
+      color: $color-grey1;
+
+    }
+  }
+
+  span {
+    cursor: pointer;
+  }
+
+  input {
+    background-color: $color-spotify-black;
+    border: none;
+    color: white;
+    padding: 10px;
+  }
+}

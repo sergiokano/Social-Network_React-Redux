@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../features/auth/authSlice";
 import "./Header.scss";
+import logo from "../../assets/images/Logo_spotify_social.png";
 
 const Header = () => {
   const { user } = useSelector((state) => state.auth);
@@ -22,7 +23,11 @@ const Header = () => {
     <>
       {user ? (
         <div className="container-header">
-          <span>Logo</span>
+          <span className="logo-header">
+            <Link to="/">
+              <img src={logo} alt="" />
+            </Link>
+          </span>
 
           <input onKeyUp={handleChange} placeholder="search post" name="text" />
 
