@@ -185,7 +185,7 @@ This space is made to list my favourites Social Networks projects that I have ex
 
 <!-- ![foto](./src/components/image/form.png) -->
 
-![gif](https://github.com/sergiokano/React_E-commerce/blob/main/assets/home-.gif)
+![gif](https://github.com/sergiokano/Social-Network_React-Redux/blob/main/src/assets/gif/home-view.gif)
 
 <!-- - Products general overview -->
 
