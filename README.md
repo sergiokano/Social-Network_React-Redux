@@ -87,6 +87,7 @@ In this project, a Social Network is developed where users will register, log in
 - [![Node][node.js]][node.js-url]
 - [![React][react]][react-url]
 - [![SASS][sass]][sass-url]
+- [![Redux][redux]][redux-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -235,7 +236,7 @@ Developed by [Sergio Cano](https://github.com/sergiokano)
 [sass-url]: https://sass-lang.com/
 [react]: https://img.shields.io/badge/React-219ebc?style=for-the-badge&logo=React&typoColor=fedcba&logoColor=white
 [react-url]: https://es.reactjs.org/
-[postman]: https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white
+[redux]: https://img.shields.io/badge/Redux-FF6C37?style=for-the-badge&logo=redux&logoColor=white
 [postman-url]: https://www.postman.com/
 
 
