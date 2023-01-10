@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../features/auth/authSlice";
 import { notification } from "antd";
+import "./Register.scss";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -43,7 +44,7 @@ const Register = () => {
         description: "Passwords do not match",
       });
     } else if (
-      !password.match(/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[^a-zA-Z0-9]).{8,}$/)
+      !password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)
     ) {
       notification.error({
         message: "Password Error",
@@ -57,6 +58,7 @@ const Register = () => {
 
   return (
     <form onSubmit={onSubmit}>
+      <h1>Register</h1>
       <input
         type="text"
         name="name"
@@ -89,7 +91,6 @@ const Register = () => {
       />
 
       <span>
-        {/* <label htmlFor="gender">Gender:</label> */}
         <select
           name="gender"
           value={gender}
@@ -105,7 +106,7 @@ const Register = () => {
       </span>
 
       <span>
-        {/* <label htmlFor="month">Month:</label> */}
+ 
         <select name="month" value={month} onChange={onChange} required>
           <option value="">Select a month</option>
           <option value="January">January</option>
@@ -128,14 +129,26 @@ const Register = () => {
         name="date"
         value={date}
         placeholder="date"
-        onChange={onChange}
+        onChange={(e) => {
+          if (/^\d+$/.test(e.target.value)) {
+            onChange(e);
+          }
+        }}
+        pattern="[0-9]*"
+        maxlength="2"
       />
       <input
         type="string "
         name="year"
         value={year}
         placeholder="year"
-        onChange={onChange}
+        onChange={(e) => {
+          if (/^\d+$/.test(e.target.value)) {
+            onChange(e);
+          }
+        }}
+        pattern="[0-9]*"
+        maxlength="4"
       />
 
       <button type="submit">Register</button>
