@@ -11,20 +11,15 @@ import { addLike, getAll, removeLike, reset } from "../../../../features/posts/p
 const Post = ({posts}) => {
   
   const dispatch = useDispatch();
-  const getAllAndReset =async()=>{
-    dispatch(getAll());
-    dispatch(reset());
- }
+
   const handleLikeClick = (_id) => {
-    console.log("Testing ", _id);
-    //PostService.addLike(postId).then(() => {
+  
     dispatch(addLike(_id));
-    //getAllAndReset();
-    //});
+    
   };
   const handleUnlikeClick = (_id) =>{
     dispatch(removeLike(_id));
-    //getAllAndReset();
+
   }
   const post = posts.map((post) => {
     const user = JSON.parse(localStorage.getItem("user"));

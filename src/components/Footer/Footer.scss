@@ -1,16 +1,24 @@
+@import "../../App.scss";
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  background-color: $color-spotify-black;
+  color: $color-spotify-white;
   display: flex;
+  justify-content: left;
   align-items: center;
-  justify-content: space-between;
+  font-size: 1rem;
+  font-family: $font-text, sans-serif;
   height: 50px;
-  background-color: #333;
-  color: rgb(167, 114, 114);
-  font-size: 14px;
+
+  .welcome-message {
+    color: white;
+    margin: 0;
+    margin-left: 2em;
+    line-height: 60px;
+    font-size: 14px;
+  }
+
   .name {
-    text-transform: capitalize;
+    font-weight: bold;
   }
 }
