@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { updatePost } from "../../../../features/posts/postsSlice";
-// import "./EditPost.scss"
 
 const EditPost = ({ visible, setVisible }) => {
   const { _id } = useParams();
@@ -24,7 +23,6 @@ const EditPost = ({ visible, setVisible }) => {
   const onFinish = (values) => {
     if (values != null) {
       const postWithId = { ...values, _id: post._id };
-      console.log(postWithId)
       setVisible(false);
       dispatch(updatePost(postWithId));
     }

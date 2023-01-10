@@ -19,8 +19,8 @@ const PostDetail = () => {
   }, []);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const handleClick = () => {
-    // setIsModalVisible(true);
-    // dispatch(addLike(_id));
+    setIsModalVisible(true);
+    dispatch(addLike(_id));
   };
 
   return (

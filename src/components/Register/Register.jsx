@@ -63,6 +63,7 @@ const Register = () => {
   };
 
   return (
+    <div className="register-form">
     <form onSubmit={onSubmit}>
       <h1>Register</h1>
       <input
@@ -156,8 +157,9 @@ const Register = () => {
         maxlength="4"
       />
 
-      <button type="submit">Register</button>
+      <button className="register" type="submit">Register</button>
     </form>
+    </div>
   );
 };
 
