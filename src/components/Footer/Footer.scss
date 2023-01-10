@@ -1,12 +1,16 @@
 @import "../../App.scss";
 
 .footer {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  width: 100%;
   background-color: $color-spotify-black;
   color: $color-spotify-white;
   display: flex;
-  justify-content: left;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: $font-text, sans-serif;
   height: 50px;
 
@@ -15,10 +19,13 @@
     margin: 0;
     margin-left: 2em;
     line-height: 60px;
-    font-size: 14px;
   }
 
   .name {
     font-weight: bold;
   }
+  .author {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;  }
 }
