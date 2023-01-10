@@ -16,6 +16,12 @@ const Profile = () => {
   console.log("USER INFO", userInfo);
   return (
     <>
+    <h1>Profile</h1>
+    <p>Name: {userInfo.name}</p>
+    <p>Email: {userInfo.email}</p>
+    <p>Born Date: {userInfo.date}/{userInfo.month}/{userInfo.year}</p>
+    <p>Gender: {userInfo.gender}</p>
+
       {userInfo?.postIds &&
         <Post posts={userInfo.postIds}/>
       }
