@@ -6,7 +6,7 @@ import Post from "./Post/Post";
 
 const Posts = () => {
   const dispatch = useDispatch();
-  const { isLoading, posts } = useSelector((state) => state.posts);
+  const { isLoading } = useSelector((state) => state.posts);
    const getAllAndReset =async()=>{
      dispatch(getAll());
      dispatch(reset());
@@ -18,7 +18,7 @@ const Posts = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  return <><Post posts={posts}/></>;
+  return <><Post /></>;
 };
 
 export default Posts;

@@ -8,8 +8,8 @@ import { HeartOutlined, HeartFilled, DeleteOutlined } from "@ant-design/icons";
 import { FaRegComment } from "react-icons/fa";
 import { addLike, deletePost, getAll, removeLike, reset } from "../../../../features/posts/postsSlice";
 
-const Post = ({posts}) => {
-  
+const Post = () => {
+const {posts} = useSelector(state => state.posts)
   const dispatch = useDispatch();
 
   const handleLikeClick = (_id) => {
