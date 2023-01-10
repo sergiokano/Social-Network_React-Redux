@@ -40,7 +40,6 @@ const Login = () => {
         dispatch(reset());
         navigate("/");
     }
-    // eslint-disable-next-line
 }, [isSuccess]);
 
   return (

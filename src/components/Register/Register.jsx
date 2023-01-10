@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../features/auth/authSlice";
 import { notification } from "antd";
 import "./Register.scss";
+import { Navigate, useNavigate } from "react-router-dom";
+import { reset } from "../../features/posts/postsSlice";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +19,8 @@ const Register = () => {
 
   const { name, email, password, password2, gender, month, date, year } =
     formData;
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const { isSuccess, message } = useSelector((state) => state.auth);
   useEffect(() => {
@@ -25,6 +29,8 @@ const Register = () => {
         message: "Registered",
         description: "User registered successful",
       });
+      dispatch(reset());
+      navigate("/");
     }
   }, [isSuccess]);
 
@@ -106,7 +112,6 @@ const Register = () => {
       </span>
 
       <span>
- 
         <select name="month" value={month} onChange={onChange} required>
           <option value="">Select a month</option>
           <option value="January">January</option>
