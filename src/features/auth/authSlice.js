@@ -31,7 +31,6 @@ export const authSlice = createSlice({
         state.user = null;
       })
       .addCase(register.fulfilled, (state, action) => {
-        console.log("register success", action.payload);
         state.isSuccess = true;
         state.message = action.payload.message;
       });

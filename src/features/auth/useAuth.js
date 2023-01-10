@@ -6,7 +6,6 @@ export default function useAuth(code) {
   const [refreshToken, setRefreshToken] = useState();
   const [expiresIn, setExpiresIn] = useState();
 
-  console.log(refreshToken);
 
   useEffect(() => {
     axios
@@ -20,7 +19,7 @@ export default function useAuth(code) {
         window.history.pushState({}, null, "/music");
       })
       .catch(() => {
-        // window.location = '/'
+        
       });
   }, [code]);
 
@@ -35,8 +34,8 @@ export default function useAuth(code) {
           setAccesToken(res.data.accessToken);
           setExpiresIn(res.data.expiresIn);
         })
-        .catch(() => {
-          window.location = '/music'
+        .catch((error) => {
+          console.error(error);
         });
     }, (expiresIn - 60) * 1000);
     return () => clearInterval(interval);

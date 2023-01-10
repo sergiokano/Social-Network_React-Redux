@@ -27,10 +27,8 @@ const {posts} = useSelector(state => state.posts)
   const post = posts?.map((post) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const findLike = post.likes.find((user_id)=>user_id ===user.user._id)
-    console.log(post.postedBy)
     const isAuthor = (post?.postedBy===user.user._id)
 
-    console.log("FIND LIKE", findLike);
     return (
       <Card
         style={{ margin: "20px 20px", textDecoration: "none" }}

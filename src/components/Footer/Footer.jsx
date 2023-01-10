@@ -3,7 +3,6 @@ import "./Footer.scss"
 
 const Footer = () => {
   const user = JSON.parse(localStorage.getItem("user"));
-console.log(user)
 
 return (
     <div className="footer">

@@ -4,7 +4,6 @@ const API_URL = "http://localhost:8080";
 
 
 const createComment = async (commentData) => {
-    console.log(commentData)
     const description={
         description:commentData.description
     }

@@ -16,9 +16,7 @@ const CreatePost = ({ showModal, handleClose, track }) => {
       track,
      
     };
-    console.log(postData);
     dispatch(createPost(postData));
-    console.log("entras?")
   }
 
   return (

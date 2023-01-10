@@ -8,11 +8,9 @@ const Profile = () => {
   const { userInfo } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log("USEFECT");
     dispatch(getUserInfo());
   }, []);
 
-  console.log("USER INFO", userInfo);
   return (
     <>
       <div className="infoProfile">

@@ -33,7 +33,6 @@ const CreateComment = () => {
     notification.success({
       message: "Comment Posted",
     });
-    console.log(commentData);
   };
 
   return (
