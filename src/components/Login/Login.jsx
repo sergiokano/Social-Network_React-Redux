@@ -6,7 +6,7 @@ import { login } from "../../features/auth/authSlice";
 import { notification } from "antd";
 import { useNavigate } from "react-router-dom";
 import { reset } from "../../features/posts/postsSlice";
-
+import "./Login.scss"
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -43,7 +43,7 @@ const Login = () => {
 }, [isSuccess]);
 
   return (
-    <div class="container mt-3">
+    <div class="container-login">
 
       <form onSubmit={onSubmit}>
       <h1>Login</h1>
