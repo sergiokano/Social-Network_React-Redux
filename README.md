@@ -237,6 +237,6 @@ Developed by [Sergio Cano](https://github.com/sergiokano)
 [react]: https://img.shields.io/badge/React-219ebc?style=for-the-badge&logo=React&typoColor=fedcba&logoColor=white
 [react-url]: https://es.reactjs.org/
 [redux]: https://img.shields.io/badge/Redux-FF6C37?style=for-the-badge&logo=redux&logoColor=white
-[postman-url]: https://www.postman.com/
+[redux-url]: https://es.redux.js.org/
 
 
