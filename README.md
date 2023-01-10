@@ -112,11 +112,11 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/sergiokano/React_E-commerce
+   git clone https://github.com/sergiokano/Social-Network_React-Redux
    ```
 2. Install NPM packages
    ```sh
-   npm install react sass
+   npm i
    ```
 3. Ready to start!
 
@@ -130,7 +130,7 @@ npm start
 
 ## Future Roadmap
 
-- [ ] Add a different style
+- [ ] Keep going adding CSS styles
 - [ ] Add more products
 - [ ] Add reviews
 
@@ -157,7 +157,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-This project is under license of Sergio Cano and Miguel Herrera
+This project is under license of Sergio Cano
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -165,11 +165,11 @@ This project is under license of Sergio Cano and Miguel Herrera
 
 ## Acknowledgments
 
-This space is made to list my favourites E-COMMERCE projects that I have explored and inspired by while doing my app.
+This space is made to list my favourites Social Networks projects that I have explored and inspired by while doing my app.
 
-- https://github.com/Molerog/FrontendOnlineShop
-- https://github.com/radikalex/e-commerce-React
-- https://github.com/SofiaPinilla/eCommerce-Zelda
+- https://github.com/msalvatore82/BallFriends-RedSocial
+- https://github.com/radikalex/socialNetwork--frontend
+- https://github.com/miguelherreravillanueva/Proyecto-React.SocialNetwork
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -201,16 +201,11 @@ This space is made to list my favourites E-COMMERCE projects that I have explore
     <a href="https://www.linkedin.com/in/sergiocano-frontend-backend-mern/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
 </p>
 
-<p align="center">
-Miguel Herrera
-<a href = "mailto:mirkouda@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-    <a href="https://www.linkedin.com/in/mherrevi/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
-</p>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
-Developed by [Sergio Cano](https://github.com/sergiokano) and [Miguel Herrera](https://github.com/miguelherreravillanueva)
+Developed by [Sergio Cano](https://github.com/sergiokano) 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -243,17 +238,4 @@ Developed by [Sergio Cano](https://github.com/sergiokano) and [Miguel Herrera](h
 [postman]: https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white
 [postman-url]: https://www.postman.com/
 
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+
