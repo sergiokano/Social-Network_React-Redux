@@ -1,0 +1,22 @@
+@import "../../App.scss";
+
+.infoProfile,
+.commentsProfile {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: $font-text;
+}
+.infoProfile h1,
+.commentsProfile h2 {
+  color: $color-spotify-black;
+  margin-bottom: 16px;
+}
+
+.infoProfile p,
+.commentsProfile p {
+  font-size: 16px;
+  margin: 8px 0;
+}
