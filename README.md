@@ -88,6 +88,9 @@ In this project, a Social Network is developed where users will register, log in
 - [![React][react]][react-url]
 - [![SASS][sass]][sass-url]
 - [![Redux][redux]][redux-url]
+- [![Mongodb][mongodb]][mongodb-url]
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
