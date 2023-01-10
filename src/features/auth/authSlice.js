@@ -12,11 +12,20 @@ const initialState = {
 export const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    reset: (state) => {
+      state.isError = false;
+      state.isSuccess = false;
+      state.isLoading = false;
+      state.errorMessage = "";
+  },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload;
+        state.isSuccess = true;
+
       })
       .addCase(logout.fulfilled, (state, action) => {
         state.user = null;

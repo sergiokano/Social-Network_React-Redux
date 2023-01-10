@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import "./Login.scss"
+import React, { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { login } from "../../features/auth/authSlice";
 import { notification } from "antd";
+import { useNavigate } from "react-router-dom";
+import { reset } from "../../features/posts/postsSlice";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +13,7 @@ const Login = () => {
 
     password: "",
   });
-  const { user } = useSelector((state) => state.auth);
+  const { user , isSuccess} = useSelector((state) => state.auth);
 
   const { email, password } = formData;
 
@@ -22,6 +24,7 @@ const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -32,12 +35,19 @@ const Login = () => {
       message: `${user.message}`,
     });
   };
+  useEffect(() => {
+    if (isSuccess) {
+        dispatch(reset());
+        navigate("/");
+    }
+    // eslint-disable-next-line
+}, [isSuccess]);
 
   return (
     <div class="container mt-3">
-      <h1>Login</h1>
 
       <form onSubmit={onSubmit}>
+      <h1>Login</h1>
         <div class="mb-3 mt-3">
           <label for="email">Email:</label>
 
