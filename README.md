@@ -3,7 +3,7 @@
  <h3 align="center">MERN STACK PROJECT</h3>
 
   <p align="center">
-    Social Network made using Javascript and React, Redux with Context and SASS.
+    Social Network made using Javascript and React, Redux and SASS.
     <br />
     <a href="https://github.com/sergiokano/Social-Network_React-Redux"><strong>Explore the docs »</strong></a>
     <br />
